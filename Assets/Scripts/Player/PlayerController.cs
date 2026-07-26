@@ -42,11 +42,11 @@ public class PlayerController : MonoBehaviour
     }
     private void Jump()
     {
+        isGrounded = Physics2D.OverlapCircle(groundCheck.position,0.2f,groundLayer);
         if (Input.GetButton("Jump") && isGrounded)
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);//thay đổi vận tốc của rigidbody theo input và jumpForce
         }
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position,0.2f,groundLayer);
     }
     private void AnimationUpdate()
     {
